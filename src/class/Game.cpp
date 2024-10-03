@@ -15,6 +15,14 @@ Game::Game() {
 	grass->setOrigin(grassTexture->getSize().x / 2, 0);
 	_sprites["grass"] = grass;
 
+	auto knightTexture = new sf::Texture;
+	if (!knightTexture->loadFromFile("assets/knight.png"))
+		exit(EXIT_FAILURE);
+	auto knight = new sf::Sprite(*knightTexture);
+	knight->setScale(40.0f / knightTexture->getSize().x, 60.0f / knightTexture->getSize().y);
+	knight->setOrigin(knightTexture->getSize().x / 2, knightTexture->getSize().y);
+	_sprites["knight"] = knight;
+
 	auto cursorTexture = new sf::Texture;
 	if (!cursorTexture->loadFromFile("assets/cursor.png"))
 		exit(EXIT_FAILURE);

@@ -13,6 +13,8 @@ int main() {
 				window.draw(*game.getSprite("grass"));
 			}
 		}
+		game.getSprite("knight")->setPosition(isoToCar(sf::Vector2f(175, 175)) + game.getOffset());
+		window.draw(*game.getSprite("knight"));
 		if (DEBUG) {
 			game.getText("debug")->setString(
 				"mousePos= x:" + floatToString(game.getMousePos().x, 0) + " y:" + floatToString(game.getMousePos().x, 0)
