@@ -3,6 +3,8 @@
 #include <iostream>
 #include <cmath>
 #include <SFML/Graphics.hpp>
+#include <sstream>
+#include <iomanip>
 
 #define TITLE "game"
 #define WINDOW_WIDTH 800
@@ -18,6 +20,8 @@ class Game {
 		sf::Vector2f _offset;
 		sf::Vector2f _mousePos;
 		sf::Vector2f _mouseIsoPos;
+		std::map<std::string, sf::Sprite*> _sprites;
+		std::map<std::string, sf::Text*> _texts;
 	public:
 		Game();
 		sf::RenderWindow& getWindow();
@@ -26,6 +30,8 @@ class Game {
 		sf::Vector2f getOffset();
 		sf::Vector2f getMousePos();
 		sf::Vector2f getMouseIsoPos();
+		sf::Sprite* getSprite(std::string name);
+		sf::Text* getText(std::string name);
 		void update();
 };
 
@@ -33,3 +39,4 @@ class Game {
 sf::Vector2f carToIsoTile(sf::Vector2f v);
 sf::Vector2f carToIso(sf::Vector2f v);
 sf::Vector2f isoToCar(sf::Vector2f v);
+std::string floatToString(float value, int precision);

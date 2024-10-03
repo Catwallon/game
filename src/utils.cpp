@@ -14,3 +14,9 @@ sf::Vector2f isoToCar(sf::Vector2f v)
 {
 	return sf::Vector2f(2.0f * v.x - 2.0f * v.y, v.x + v.y);
 }
+
+std::string floatToString(float value, int precision) {
+	std::ostringstream oss;
+	oss << std::fixed << std::setprecision(precision) << value;
+	return oss.str();
+	}
