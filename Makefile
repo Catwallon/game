@@ -1,7 +1,7 @@
 NAME = game
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 LD_FLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
 BIN_DIR = bin
