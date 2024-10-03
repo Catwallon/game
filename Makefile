@@ -10,7 +10,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 BIN = $(addprefix $(BIN_DIR)/, $(NAME))
-SRC = $(wildcard $(SRC_DIR)/*.cpp)
+SRC = $(shell find $(SRC_DIR) -name '*.cpp')
 OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 
 all: $(BIN)
@@ -20,11 +20,11 @@ $(BIN): $(OBJ)
 	$(CC) $(OBJ) -o $@ $(LD_FLAGS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
 clean:
-	rm -f $(OBJ_DIR)/*.o
+	rm -rf $(OBJ_DIR)/*
 
 fclean: clean
 	rm -f $(BIN)
